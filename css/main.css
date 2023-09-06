@@ -1,0 +1,11 @@
+img.card-img-top {
+    height: 300px;
+    object-fit: cover;
+}
+
+p.card-text {
+    max-width: 50ch;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}

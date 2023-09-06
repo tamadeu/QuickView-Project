@@ -1,0 +1,103 @@
+<h3>Today is {{ date }}</h3>
+
+<h2>Overview</h2>
+<p>QuickView is a lightweight JavaScript-based templating engine designed to dynamically render HTML pages. It offers a simple syntax to embed variables and execute conditional statements and loops within HTML files.</p>
+
+<h2>Table of Contents</h2>
+<ul>
+  <li><a href="#features">Features</a></li>
+  <li><a href="#installation">Installation</a></li>
+  <li><a href="#usage">Usage</a>
+    <ul>
+      <li><a href="#in-html-file">In HTML File</a></li>
+      <li><a href="#in-javascript-file">In JavaScript File</a></li>
+    </ul>
+  </li>
+  <li><a href="#examples">Examples</a>
+    <ul>
+      <li><a href="#example-1-using-local-data">Example 1: Using Local Data</a></li>
+      <li><a href="#example-2-using-external-data">Example 2: Using External Data</a></li>
+    </ul>
+  </li>
+  <li><a href="#contributions">Contributions</a></li>
+</ul>
+
+<h2 id="features">Features</h2>
+<ul>
+  <li>Variable Interpolation: Use {{ variableName }} for dynamic content.</li>
+  <li>Conditional Blocks: Execute conditionals using @if, @elseif, @else, and @endif.</li>
+  <li>Looping: Loop through arrays with @foreach and @endforeach.</li>
+  <li>File Inclusion: Include external HTML files using @include('fileName').</li>
+  <li>Data Fetching: Fetch and embed JSON data from URLs or objects.</li>
+</ul>
+
+<h2 id="installation">Installation</h2>
+<pre><code>&lt;script src="path/to/quickview.js"&gt;&lt;/script&gt;</code></pre>
+
+<h2 id="usage">Usage</h2>
+<h3 id="in-html-file">In HTML File</h3>
+<p>Variable Replacement:</p>
+<pre><code>&lt;h1&gt;{{ siteName }}&lt;/h1&gt;</code></pre>
+
+<p>Conditionals:</p>
+<pre><code>@if(someCondition)
+&lt;!-- HTML content --&gt;
+@elseif(anotherCondition)
+&lt;!-- HTML content --&gt;
+@else
+&lt;!-- HTML content --&gt;
+@endif
+</code></pre>
+
+<p>Loops:</p>
+<pre><code>@foreach(items)
+&lt;p&gt;{{ itemName }}&lt;/p&gt;
+@endforeach
+</code></pre>
+
+<p>File Inclusion:</p>
+<pre><code>@include('header')</code></pre>
+
+<h3 id="in-javascript-file">In JavaScript File</h3>
+<pre><code>qv({
+"localVariable": "value",
+"externalData": "http://example.com/data.json",
+});
+</code></pre>
+
+<h2 id="examples">Examples</h2>
+<h3 id="example-1-using-local-data">Example 1: Using Local Data</h3>
+<p>HTML File (index.html):</p>
+<pre><code>&lt;h1&gt;{{ siteName }}&lt;/h1&gt;
+@foreach(users)
+&lt;p&gt;Name: {{ name }}, Age: {{ age }}&lt;/p&gt;
+@endforeach
+</code></pre>
+
+<p>JavaScript:</p>
+<pre><code>qv({
+"siteName": "My Site",
+"users": [
+  {"name": "Alice", "age": 25},
+  {"name": "Bob", "age": 30}
+]
+});
+</code></pre>
+
+<h3 id="example-2-using-external-data">Example 2: Using External Data</h3>
+<p>JavaScript:</p>
+<pre><code>qv({
+"siteName": "My Site",
+"users": "http://example.com/users.json"
+});
+</code></pre>
+
+<p>JSON File (users.json):</p>
+<pre><code>[
+{"name": "Alice", "age": 25},
+{"name": "Bob", "age": 30}
+]
+</code></pre>
+
+<h2 id="contributions">Contributions</h2>
+<p>Contributions are welcome! Feel free to open an issue or submit a pull request to improve the engine.</p>
